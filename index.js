@@ -60,87 +60,79 @@ const root = document.querySelector(".sqrt");
 const del = document.querySelector(".del");
 const equal = document.querySelector(".equal");
 const display = document.querySelector(".display");
+const displayCalc = document.querySelector(".display-results");
 let op;
-let pastNumber = 0;
-let currentNumber = 0;
+let pastNumber;
+let currentNumber;
+let answer;
 
 
 n0.addEventListener("click", () => {
     display.textContent += n0.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 0;
 });
 
 n1.addEventListener("click", () => {
     display.textContent += n1.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 1;
 });
 
 n2.addEventListener("click", () => {
     display.textContent += n2.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 2;
 });
 
 n3.addEventListener("click", () => {
     display.textContent += n3.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 3;
 });
 
 n4.addEventListener("click", () => {
     display.textContent += n4.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 4;
 });
 
 n5.addEventListener("click", () => {
     display.textContent += n5.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 5;
 });
 
 n6.addEventListener("click", () => {
     display.textContent += n6.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 6;
 });
 
 n7.addEventListener("click", () => {
     display.textContent += n7.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 7;
 });
 
 n8.addEventListener("click", () => {
     display.textContent += n8.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 8;
 });
 
 n9.addEventListener("click", () => {
     display.textContent += n9.textContent;
-    pastNumber = currentNumber;
-    currentNumber = 9;
 });
 
 clear.addEventListener("click", () => {
     display.textContent = "";
+    displayCalc.textContent = "";
 });
 
 x.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += x.textContent;
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "*";
 });
 
 pow.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += "^";
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "^"
 });
 
 div.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += div.textContent;
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "/";
 });
 
@@ -149,17 +141,26 @@ dot.addEventListener("click", () => {
 });
 
 minus.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += minus.textContent;
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "-";
 });
 
 plus.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += plus.textContent;
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "+";
 });
 
 root.addEventListener("click", () => {
+    pastNumber = display.textContent;
     display.textContent += root.textContent;
+    displayCalc.textContent = display.textContent;
+    display.textContent = "";
     op = "root";
 });
 
@@ -168,5 +169,12 @@ del.addEventListener("click", () => {
 });
 
 equal.addEventListener("click", () => {
+    currentNumber = display.textContent;
+    displayCalc.textContent += currentNumber;
+    displayCalc.textContent += equal.textContent;
     display.textContent = operator(op, pastNumber, currentNumber);
+    answer = operator(op, pastNumber, currentNumber);
+    pastNumber = currentNumber;
+    currentNumber = answer;
+    op = null;
 });
