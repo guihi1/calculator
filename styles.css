@@ -22,14 +22,25 @@ body {
     justify-content: center;
 }
 
-.display {
+.disp-container{
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     height: 100px;
     width: 300px;
     background-color: white;
     border-radius: 5px 5px 0 0;
-    justify-content: flex-end;
-    align-items: center;
+}
+
+.display, .display-results {
+   margin-right: 15px;
+}
+
+.display-results {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.534);
 }
 
 .row {
@@ -48,4 +59,25 @@ button {
 
 button:hover {
     background-color: #BEE2E2;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    background-color: #9AD1D1;
+}
+
+.blue:hover {
+    color: white;
+    background-color: #6EBCBC;
+}
+
+.operation {
+    background-color: #60A2A2;
+}
+
+.operation:hover {
+    background-color: #569292;
 }
