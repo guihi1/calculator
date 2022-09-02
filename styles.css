@@ -12,6 +12,10 @@ body {
     background-color: #C5E6E6;
 }
 
+.calc-container, .disp-container {
+    border: 10px solid black;
+}
+
 .calc-container {
     display: flex;
     flex-direction: column;
@@ -22,8 +26,12 @@ body {
     justify-content: center;
 }
 
+.calc-container {
+    border-top: 0px;
+}
+
 .disp-container{
-    margin: 0 auto;
+    margin: 15px 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
